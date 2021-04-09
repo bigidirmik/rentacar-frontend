@@ -1,0 +1,35 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Marka</th>
+      <th>&nbsp;Yıl</th>
+      <th>G. Ücret</th>
+      <th>KDV'li Ücret</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src="{{ imageBasePath }}{{ carDetails[0].imagePath }}"
+          class="img-thumbnail"
+          style="width: 60px; height: 40px"
+        />
+      </td>
+      <td>{{ carDetails[0].description}}</td>
+      <td>{{ carDetails[0].modelYear }}</td>
+      <td>{{ carDetails[0].dailyPrice }}</td>
+      <td>&ensp;{{ carDetails[0].dailyPrice}}</td>
+      <td>
+        <button
+          class="btn btn-outline-dark"
+          
+        > <!-- routerLink="rentalAdd/{{ carDetail.carId }}" -->
+          KİRALA
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

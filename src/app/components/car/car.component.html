@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-3">
+    <app-category></app-category>
+  </div>
+  <div class="col-md-3">
+    <app-brand></app-brand>
+  </div>
+  <div class="col-md-3">
+    <app-color></app-color>
+  </div>
+  <div class="form-floating col-md-2">
+    <input
+      style="height: 70%"
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filterText"
+      placeholder="kategori, marka, renk, yıl ara..."
+    />
+    <label for="filterText" style="color: gray; font-size: 85%"
+      >&ensp;kategori, marka, renk, yıl ara...</label
+    >
+  </div>
+</div>
+
+<table class="table">
+  <thead *ngIf="dataLoaded == true">
+    <tr>
+      <th></th>
+      <th>Marka</th>
+      <th>&nbsp;Yıl</th>
+      <th>G. Ücret</th>
+      <th>KDV'li Ücret</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of cars | filterPipe: filterText">
+      <td>
+        <img
+          src="{{ imageBasePath }}{{ car.imagePath }}"
+          class="img-thumbnail"
+          style="width: 60px; height: 40px"
+        />
+      </td>
+      <td>{{ car.description | uppercase }}</td>
+      <td>{{ car.modelYear }}</td>
+      <td>{{ car.dailyPrice | currency: "₺ " }}</td>
+      <td>&ensp;{{ car.dailyPrice | vatAdded: 18 | currency: "₺ " }}</td>
+      <td>
+        <button
+          class="btn btn-outline-dark"
+          routerLink="carDetails/{{ car.carId }}"
+        >
+          DETAY
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

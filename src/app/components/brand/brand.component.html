@@ -1,0 +1,52 @@
+<!-- <header *ngIf="dataLoaded == true" style="text-align: center">
+  <strong>BRANDS</strong>
+</header>
+<ul class="list-group">
+  <li
+    *ngIf="dataLoaded == true"
+    routerLink="/cars"
+    [class]="getAllBrandClass()"
+    (click)="resetCurrentBrand()"
+  >
+    Tüm Markalar
+  </li>
+  <li
+    (click)="setCurrentBrand(brand)"
+    routerLink="/cars/brand/{{ brand.brandId }}"
+    *ngFor="let brand of brands"
+    [class]="getCurrentBrandClass(brand)"
+  >
+    {{ brand.brandName }}
+  </li>
+</ul> -->
+
+<div class="row">
+  <div class="col-md-6">
+    <h6>Marka</h6>
+    <select class="form-select" [(ngModel)]="currentBrand">
+      <option *ngFor="let brand of brands" [ngValue]="brand">
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <button
+      routerLink="/cars"
+      type="button"
+      class="btn btn-secondary mt-3 ms-0"
+      style="margin-top: 50px"
+    >
+      Tümü
+    </button>
+
+    <button
+      *ngIf="currentBrand"
+      routerLink="/cars/brand/{{ currentBrand.brandId }}"
+      type="button"
+      class="btn btn-secondary mt-3"
+    >
+      Filtrele
+    </button>
+  </div>
+</div>

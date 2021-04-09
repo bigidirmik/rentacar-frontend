@@ -1,0 +1,20 @@
+export interface RentalDto{
+    rentalId:number,
+    carId:number,
+    categoryId:number,
+    brandId:number,
+    colorId:number,
+    userId:number,
+    customerId:number,
+    categoryName:string,
+    brandName:string,
+    colorName:string,
+    companyName:string,
+    modelYear:number,
+    description:string,
+    userName:string,
+    customerName:string,
+    customerSurname:string,
+    rentDate:Date,
+    returnDate?:Date
+}

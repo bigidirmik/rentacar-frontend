@@ -1,0 +1,36 @@
+<table class="table" *ngFor="let carDetail of carDetails">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Marka</th>
+        <th>&nbsp;Yıl</th>
+        <th>G. Ücret</th>
+        <th>KDV'li Ücret</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <img
+            src="{{ imageBasePath }}{{ carDetail.imagePath }}"
+            class="img-thumbnail"
+            style="width: 60px; height: 40px"
+          />
+        </td>
+        <td>{{ carDetail.description}}</td>
+        <td>{{ carDetail.modelYear }}</td>
+        <td>{{ carDetail.dailyPrice | currency }}</td>
+        <td>&ensp;{{ carDetail.dailyPrice | vatAdded:18 | currency }}</td>
+        <td>
+          <button
+            class="btn btn-outline-dark"
+            (click)="routingAddRental(carDetail)"
+            routerLink="rentalAdd/{{ carDetail.carId }}"
+          >
+            KİRALA
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,13 @@
+<header *ngIf="dataLoaded == true" style="text-align: center">
+  <strong>CUSTOMERS</strong>
+</header>
+<ul class="list-group">
+  <li
+    (click)="setCurrentCustomer(customer)"
+    routerLink = "/rentals/customer/{{customer.customerId}}"
+    *ngFor="let customer of customers"
+    [class]="getCurrentCustomerClass(customer)"
+  >
+    {{ customer.companyName }}
+  </li>
+</ul>

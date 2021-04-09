@@ -1,0 +1,52 @@
+<!-- <header *ngIf="dataLoaded == true" style="text-align: center">
+  <strong>COLORS</strong>
+</header>
+<ul class="list-group">
+  <li
+    *ngIf="dataLoaded == true"
+    routerLink="/cars"
+    [class]="getAllColorClass()"
+    (click)="resetCurrentColor()"
+  >
+    Tüm Renkler
+  </li>
+  <li
+    (click)="setCurrentColor(color)"
+    routerLink="/cars/color/{{ color.colorId }}"
+    *ngFor="let color of colors"
+    [class]="getCurrentColorClass(color)"
+  >
+    {{ color.colorName }}
+  </li>
+</ul> -->
+
+<div class="row">
+  <div class="col-md-6">
+    <h6>Renk</h6>
+    <select class="form-select" [(ngModel)]="currentColor">
+      <option *ngFor="let color of colors" [ngValue]="color">
+        {{ color.colorName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <button
+      routerLink="/cars"
+      type="button"
+      class="btn btn-secondary mt-3 ms-0"
+      style="margin-top: 50px"
+    >
+      Tümü
+    </button>
+
+    <button
+      *ngIf="currentColor"
+      routerLink="/cars/color/{{ currentColor.colorId }}"
+      type="button"
+      class="btn btn-secondary mt-3"
+    >
+      Filtrele
+    </button>
+  </div>
+</div>

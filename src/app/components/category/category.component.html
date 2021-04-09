@@ -1,0 +1,42 @@
+<!-- <div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-primary"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<header *ngIf="dataLoaded == true" style="text-align: center">
+  <strong>CATEGORIES</strong>
+</header> -->
+
+<div class="row">
+  <div class="col-md-6">
+    <h6>Kategori</h6>
+    <select class="form-select" [(ngModel)]="currentCategory">
+      <option *ngFor="let category of categories" [ngValue]="category">
+        {{ category.categoryName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <button
+      routerLink="/cars"
+      type="button"
+      class="btn btn-secondary mt-3 ms-0"
+      style="margin-top: 50px"
+    >
+      Tümü
+    </button>
+
+    <button
+      *ngIf="currentCategory"
+      routerLink="/cars/category/{{ currentCategory.categoryId }}"
+      type="button"
+      class="btn btn-secondary mt-3"
+    >
+      Filtrele
+    </button>
+  </div>
+</div>
