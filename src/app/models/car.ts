@@ -5,5 +5,6 @@ export interface Car{
     colorId:number,
     description:string,
     modelYear:number,
-    dailyPrice:number
+    dailyPrice:number,
+    findexScore:number
 }

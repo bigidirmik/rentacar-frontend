@@ -48,6 +48,7 @@ export class RentalAddComponent implements OnInit {
         this.carId = params['carId'];
         this.getCarDetailsById(params['carId']);
         this.onSubmit();
+        console.log(this.rentals[0])
       } else {
         this.getRentalDetails();
         this.onSubmit();
