@@ -9,8 +9,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
-import { from } from 'rxjs';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -32,6 +30,10 @@ import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
 
+import { CarAddComponent } from './components/car/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,20 +52,24 @@ import { ToastrModule } from 'ngx-toastr';
 
     VatAddedPipe,
     FilterPipePipe,
-    MonthlyPipe
+    MonthlyPipe,
+    
+    CarAddComponent,
+    BrandAddComponent,
+    ColorAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
 
     MatDatepickerModule,
     MatMomentDateModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule,
 
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',

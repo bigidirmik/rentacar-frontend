@@ -6,6 +6,9 @@ import { RentalComponent } from './components/rental/rental.component';
 import { BrowserModule } from '@angular/platform-browser'
 import { CarDtoComponent } from './components/car-dto/car-dto.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color/color-add/color-add.component';
 
 const routes: Routes = [
   {path:"", pathMatch:"full", component:CarComponent},
@@ -33,7 +36,12 @@ const routes: Routes = [
   {path:"carDetails/:carId/rentalAdd/:carId", component:RentalAddComponent},
 
   //payment
-  {path:"payment/:carId", component:PaymentComponent}
+  {path:"payment/:carId", component:PaymentComponent},
+
+  //add
+  {path:"cars/add", component:CarAddComponent},
+  {path:"brands/add", component:BrandAddComponent},
+  {path:"colors/add", component:ColorAddComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
 
@@ -10,10 +12,12 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
   currentBrand: Brand;
-  nullBrand:Brand;
+  nullBrand: Brand;
   dataLoaded = false;
 
-  constructor(private brandService: BrandService) {}
+  constructor(
+    private brandService: BrandService
+  ) {}
 
   ngOnInit(): void {
     this.getBrands();
@@ -30,7 +34,7 @@ export class BrandComponent implements OnInit {
     this.currentBrand = brand;
   }
 
-  resetCurrentBrand(){
+  resetCurrentBrand() {
     this.currentBrand = this.nullBrand;
   }
 
@@ -42,11 +46,10 @@ export class BrandComponent implements OnInit {
     }
   }
 
-  getAllBrandClass(){
-    if(!this.currentBrand){
+  getAllBrandClass() {
+    if (!this.currentBrand) {
       return 'list-group-item active';
-    }
-    else {
+    } else {
       return 'list-group-item';
     }
   }
