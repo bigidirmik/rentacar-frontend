@@ -27,7 +27,7 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <form *ngIf="notLogged==true" class="d-flex">
+        <form *ngIf="logged==false" class="d-flex">
           <button class="btn btn-sm btn-primary" style="height: 30px;" routerLink="login">
             Giriş Yap
           </button>
@@ -35,7 +35,7 @@
             Kayıt Ol
           </button>
         </form>
-        <!--Buraya ngIf notlogged false olduğunda kullanıcı bilgileri gelecek, user update component sayfasına da buradan gidecek-->
+        <!--Buraya ngIf logged true olduğunda kullanıcı bilgileri gelecek, user update component sayfasına da buradan gidecek-->
       </div>
     </div>
   </nav>

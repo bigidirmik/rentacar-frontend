@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NaviComponent implements OnInit {
 
-  notLogged:boolean
+  logged:boolean
 
   constructor(private authService:AuthService) { }
 
@@ -20,8 +20,8 @@ export class NaviComponent implements OnInit {
 
   checkLogin(){
     let isLoggedIn = this.authService.isAuthenticated();
-    if(!isLoggedIn){
-      this.notLogged = true
+    if(isLoggedIn){
+      this.logged = true
     }
   }
 }
